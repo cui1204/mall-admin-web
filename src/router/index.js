@@ -35,6 +35,76 @@ export const constantRouterMap = [
 ]
 
 export const asyncRouterMap = [
+
+  {
+    path:'/dms',
+    component: Layout,
+    redirect: '/dms/question',
+    name: 'dms',
+
+    meta: {title: '题库', icon: 'ums'},
+    children: [
+      {
+        path: 'question',
+        name: 'question',
+        component: () => import('@/views/dms/question/index'),
+        meta: {title: '题库列表', icon: 'ums-admin'}
+      },
+      {
+        path: 'category',
+        name: 'category',
+        component: () => import('@/views/dms/category/index'),
+        meta: {title: '分类列表', icon: 'ums-role'}
+      },
+      // {
+      //   path: 'allocMenu',
+      //   name: 'allocMenu',
+      //   component: () => import('@/views/ums/role/allocMenu'),
+      //   meta: {title: '分配菜单'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'allocResource',
+      //   name: 'allocResource',
+      //   component: () => import('@/views/ums/role/allocResource'),
+      //   meta: {title: '分配资源'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'menu',
+      //   name: 'menu',
+      //   component: () => import('@/views/ums/menu/index'),
+      //   meta: {title: '菜单列表', icon: 'ums-menu'}
+      // },
+      {
+        path: 'addQuestion',
+        name: 'addQuestion',
+        component: () => import('@/views/dms/question/add'),
+        meta: {title: '添加题目'},
+        hidden: true
+      },
+      {
+        path: 'updateQuestion',
+        name: 'updateQuestion',
+        component: () => import('@/views/dms/question/update'),
+        meta: {title: '修改题目'},
+        hidden: true
+      },
+      // {
+      //   path: 'resource',
+      //   name: 'resource',
+      //   component: () => import('@/views/ums/resource/index'),
+      //   meta: {title: '资源列表', icon: 'ums-resource'}
+      // },
+      // {
+      //   path: 'resourceCategory',
+      //   name: 'resourceCategory',
+      //   component: () => import('@/views/ums/resource/categoryList'),
+      //   meta: {title: '资源分类'},
+      //   hidden: true
+      // }
+    ]
+  },
   {
     path: '/pms',
     component: Layout,
